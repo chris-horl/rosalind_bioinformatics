@@ -1,20 +1,26 @@
-
-# My original approach:
 # dna = input("Find reverse complement of the following sequence:")
 dna = "TTTTATCAATACTCCAGGGTACCCTTCCTCAAGTCCCTAGCGTTGCCGGCCTAACTTGAACATAATTCAGACGTGGACCCAACTTACAGAGTACAGCAGGTACATAACCCTCGCGCGGCTCTAACAATACTTTCGATTTTGCAACTGTCCCCTCAACGCACTATGTTTGGCGCTCCCAGGAGAGTAGTGCCGACCGTCGGCTGCAAACTTTGGCATATCCTAGAGATCTTGCCCAGGGGCCATTGACTTCGACGATAACCATTATATCACCGATAATTATCCTGTATGGTAGGTGAGCGTTTGAAGTTTTCTACACTTGAATATTGGGAGTCGTATTCGTCTCACATCCGGTGGCGCCTTGTCCCCCCATGACACGATACTAATTGACTTCTTGAAGGAGTGGGCAGCAGGGGGACTATGCGCTTCGGTGCTCTCATGATCTGCAATGGAGCAGATGACCCCAGTTTCTTAACTGCATCTCTTAACGCGTCTCTTCGCTTGGATCGAGCTATCTGCACTAAGCCTGGCGCTATAAGTCGCTTCAGCTAGCAATGTGAATCAGGGAGGAAAATAAGTAAGGGTCGTACCGTATTCACCTGCTAAGAGTTACTTAGAGGAAGAAAAGGGCGAAACTTCGGACAGCTTACATGACAGCGCGCTAGTTGGCTAGGGGGTAACCTGTCAGCATCGAACTCGCTGCCGGAAACAAGGGTCCGCGGCTCTAAATTCGCGCTACACTGTCGGTGTTTGCCCTGCTCCGGGCTAGATTCAAATTACCAACTACAAAGAGTACGTTCGACCGAATATCGGTCGGATCCACTGGGGTCGGCTAATATGGTCCCGGCGTCACGATAAACCACCTT"
 
-dna = list(dna)
-dna.reverse()
-rev_dna = dna
+# dna = list(dna)
+# dna.reverse()
+# rev_dna = dna
 
-base_pairing = {"A":"T", "T": "A", "C": "G", "G": "C"}
+# base_pairing = {"A":"T", "T": "A", "C": "G", "G": "C"}
 
-comp_rev_dna = []
-for nucleotide in rev_dna:
-    nucleotide = base_pairing[nucleotide]
-    comp_rev_dna.append(nucleotide)
+# comp_rev_dna = []
+# for nucleotide in rev_dna:
+#     nucleotide = base_pairing[nucleotide]
+#     comp_rev_dna.append(nucleotide)
 
-print("".join(comp_rev_dna))
+# print("".join(comp_rev_dna))
 
+def reverse_complement(dna:str)->str:   
+    base_pairing = {"A":"T", "T": "A", "C": "G", "G": "C"}
 
-## Communitiy approaches: 4 x .replace in one row
+    comp_rev_dna = []
+    for nucleotide in dna[::-1]:
+        comp_rev_dna.append(base_pairing[nucleotide])
+    
+    return("".join(comp_rev_dna))
+
+# print(reverse_complement(dna))
